@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="col-lg-6 offset-3">
+    <header>
+      <h3>Nuevo usuario</h3>
+    </header>
+    <section class="container">
+      <form [formGroup]="userForm" (ngSubmit)="!userForm.invalid && crearUsuario()">
+        <div class="row">
+          <div class="col col-12">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="username">Nombre</label>
+              <input id="username" class="form-control" formControlName="username" maxlength="" autocomplete="off"
+                placeholder="Ingrese el nombre del usuario" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+              userForm.get('username')!.hasError('required') &&
+              userForm.get('username')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show"
+                *ngIf="userForm.get('username')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+            
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="password">Contraseña</label>
+              <input id="password" class="form-control" placeholder="Contraseña" maxlength="30"
+                formControlName="password" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+              userForm.get('password')!.hasError('required') &&
+              userForm.get('password')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show"
+                *ngIf="userForm.get('password')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Crear</button>&nbsp;
+      </form>
+    </section>
+  </div>
+</div>

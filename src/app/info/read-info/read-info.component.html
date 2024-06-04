@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2>Lista de Producciones</h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Género</th>
+        <th>Duración</th>
+        <th>Director</th>
+        <th>País</th>
+        <th>Elenco</th>
+        <th>Fecha de Estreno</th>
+        <th>Tráiler</th>
+        <th>Plataforma</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of info">
+        <td>{{ item.title }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.genre }}</td>
+        <td>{{ item.duration }}</td>
+        <td>{{ item.director }}</td>
+        <td>{{ item.country }}</td>
+        <td>{{ item.cast }}</td>
+        <td>{{ item.release | date }}</td>
+        <td><a [href]="item.trailer" target="_blank">Ver Tráiler</a></td>
+        <td>{{ item.platform }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="onEditarNavigate(item.id)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="onEliminarNavigate(item.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

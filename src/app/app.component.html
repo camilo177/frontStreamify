@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streamify</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .title-line {
+      border-bottom: 2px solid #000;
+      padding-bottom: 10px;
+    }
+    .separator-line {
+      border-bottom: 1px solid #ccc;
+      margin-top: 20px;
+    }
+    .navbar-custom {
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row navbar-custom">
+    <div class="col-md-10">
+      <h1 class="title-line"><a href="/ver-producciones">Streamify</a></h1>
+    </div>
+    <div class="col-md-2 text-right">
+      <a class="btn btn-primary" href="/agregar-usuario">Crear Usuario</a>
+    </div>
+  </div>
+  <div class="separator-line"></div>
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

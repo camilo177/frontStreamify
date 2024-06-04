@@ -1,0 +1,19 @@
+<div class="container-fluid d-flex flex-column min-vh-100">
+  <h3>Lista de Producciones</h3>
+  <div class="row flex-grow-1">
+    <div class="col-md-4" *ngFor="let p of productions">
+      <div class="card">
+        <img class="card-img-top" [src]="p.poster" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.title }}</h5>
+          <p class="card-text">{{ p.genre }}</p>
+          <button class="btn btn-primary btn-sm" (click)="onMirarNavigate()">Ver más</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-auto">
+    <button class="btn btn-primary btn-sm" (click)="onCreateNavigate()">Crear</button>
+  </div>
+</div>
+

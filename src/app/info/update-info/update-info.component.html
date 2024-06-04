@@ -1,0 +1,132 @@
+<div class="container-fluid">
+  <div class="col-lg-6 offset-3">
+    <header>
+      <h2>Actualizar Producción</h2>
+    </header>
+    <section class="container">
+      <form [formGroup]="infoForm" (ngSubmit)="updateInfo()">
+        <div class="row">
+          <div class="col col-12">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="title">Título</label>
+              <input id="title" class="form-control" formControlName="title" maxlength="50" autocomplete="off" placeholder="Ingrese el título" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('title')!.hasError('required') && infoForm.get('title')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('title')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="description">Descripción</label>
+              <textarea id="description" class="form-control" formControlName="description" rows="4" maxlength="255" placeholder="Ingrese la descripción"></textarea>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('description')!.hasError('required') && infoForm.get('description')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('description')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="poster">Poster</label>
+              <input type="file" class="file-input mt-4" (change)="onFileSelected($event)" #fileUpload />
+              <div class="file-upload">
+                {{ fileName || "No file uploaded yet." }}
+                <button type="button" class="btn btn-primary" (click)="fileUpload.click()">
+                  <i class="fas fa-upload"></i>
+                </button>
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('poster')!.hasError('required') && infoForm.get('poster')!.touched">
+                Campo requerido
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="genre">Género</label>
+              <input id="genre" class="form-control" formControlName="genre" maxlength="50" placeholder="Género" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('genre')!.hasError('required') && infoForm.get('genre')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('genre')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="duration">Duración</label>
+              <input id="duration" class="form-control" formControlName="duration" placeholder="Duración" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('duration')!.hasError('required') && infoForm.get('duration')!.touched">
+                Campo requerido
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="director">Director</label>
+              <input id="director" class="form-control" formControlName="director" maxlength="50" placeholder="Director" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('director')!.hasError('required') && infoForm.get('director')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('director')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="country">País</label>
+              <input id="country" class="form-control" formControlName="country" maxlength="50" placeholder="País" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('country')!.hasError('required') && infoForm.get('country')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('country')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="cast">Elenco</label>
+              <input id="cast" class="form-control" formControlName="cast" maxlength="100" placeholder="Elenco" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('cast')!.hasError('required') && infoForm.get('cast')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('cast')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="release">Fecha de Estreno</label>
+              <input id="release" class="form-control" formControlName="release" type="date" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('release')!.hasError('required') && infoForm.get('release')!.touched">
+                Campo requerido
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="trailer">Tráiler (URL)</label>
+              <input id="trailer" class="form-control" formControlName="trailer" maxlength="255" placeholder="URL del tráiler" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('trailer')!.hasError('required') && infoForm.get('trailer')!.touched">
+                Campo requerido
+              </div>
+            </div>
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="platform">Plataforma</label>
+              <input id="platform" class="form-control" formControlName="platform" maxlength="50" placeholder="Plataforma" />
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('platform')!.hasError('required') && infoForm.get('platform')!.touched">
+                Campo requerido
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" *ngIf="infoForm.get('platform')!.hasError('minlength')">
+                El contenido es muy corto.
+              </div>
+            </div>
+
+            <br />
+            <button type="submit" class="btn btn-primary" [disabled]="!infoForm.valid">Actualizar</button>&nbsp;
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
