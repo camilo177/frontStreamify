@@ -1,0 +1,10 @@
+{
+    "routes": [
+      {
+        "route": "/{*all}",
+        "serve": "/index.html",
+        "statusCode": 200
+      }
+    ]
+  }
+  
